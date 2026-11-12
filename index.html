@@ -1,229 +1,543 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RED TOWN ROLEPLAY</title>
+<title>RED TOWN ROLEPLAY | Official Rules</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --red:#f21c35;
+  --dark:#080808;
+  --panel:#151515;
+  --muted:#aaa;
+  --white:#fff;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-font-family:Arial,sans-serif;
-background:#08090d;color:white;
+  font-family:'Kanit',sans-serif;
+  background:#080808;
+  color:white;
+  line-height:1.8;
 }
-:root{--red:#e50920;--dark:#08090d}
-header{
-position:sticky;top:0;z-index:99;
-background:rgba(5,6,10,.96);
-border-bottom:1px solid #6d101b;
-padding:18px 7%;
-display:flex;justify-content:space-between;
-align-items:center;flex-wrap:wrap;gap:15px
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(5,5,5,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #64101c;
+  padding:13px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
-.logo{font-size:25px;font-weight:900;letter-spacing:3px}
-.logo span{color:var(--red)}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:#ddd;text-decoration:none;font-size:13px}
-nav a:hover{color:#ff263d}
+.logo{
+  color:var(--red);
+  font-weight:800;
+  font-size:23px;
+  letter-spacing:2px;
+}
+.navlinks{
+  display:flex;
+  gap:23px;
+  font-size:14px;
+}
+.navlinks a:hover{color:var(--red)}
+.join-small{
+  background:var(--red);
+  padding:8px 17px;
+  border-radius:6px;
+  font-weight:700;
+  font-size:13px;
+}
+
 .hero{
-min-height:680px;
-display:flex;align-items:center;justify-content:center;
-text-align:center;padding:70px 20px;
-position:relative;overflow:hidden;
-background:
-linear-gradient(180deg,rgba(0,0,0,.25),#08090d),
-radial-gradient(ellipse at 50% 75%,#8c0618 0%,#300811 35%,#09090e 75%);
+  min-height:590px;
+  padding:100px 20px 85px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.48),#080808 100%),
+    radial-gradient(ellipse at center,#76101c 0%,#21070b 38%,#080808 75%);
 }
-.city{
-position:absolute;bottom:0;width:100%;height:220px;
-display:flex;align-items:flex-end;justify-content:center;
-gap:7px;opacity:.6;
+.hero:before{
+  content:"";
+  position:absolute;
+  width:450px;
+  height:450px;
+  border-radius:50%;
+  background:#ed102b;
+  filter:blur(180px);
+  opacity:.2;
 }
-.building{
-background:linear-gradient(90deg,#090a0f,#24212a,#08090d);
-border-top:2px solid #a10c20;
-width:7%;height:var(--h);
-box-shadow:0 0 20px #8e0719;
+.hero>*{position:relative}
+.hero-tag{
+  border:1px solid #e82b43;
+  color:#ff5265;
+  padding:6px 20px;
+  border-radius:30px;
+  font-size:12px;
+  letter-spacing:3px;
+  margin-bottom:22px;
 }
-.hero-content{position:relative;z-index:2;max-width:850px}
 .hero h1{
-font-size:clamp(40px,9vw,90px);
-font-weight:1000;letter-spacing:4px;
-text-shadow:0 0 30px #d90020;
+  font-size:clamp(43px,8vw,90px);
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:4px;
+  text-shadow:0 0 35px #a50019;
 }
-.hero h1 span{color:#ff1b36}
-.subtitle{
-letter-spacing:6px;color:#ddd;
-margin:20px 0;font-size:13px
+.hero h1 span{color:var(--red)}
+.hero p{
+  color:#ccc;
+  max-width:650px;
+  margin:20px auto 30px;
 }
-.hero p{color:#ccc;line-height:2;font-size:15px}
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:13px;
+}
 .btn{
-display:inline-block;padding:15px 30px;
-background:linear-gradient(135deg,#ed102c,#780010);
-color:white;text-decoration:none;
-font-weight:bold;border:1px solid #ff344c;
-border-radius:5px;transition:.3s;
+  display:inline-block;
+  padding:13px 28px;
+  border-radius:7px;
+  font-weight:700;
+  transition:.25s;
 }
-.btn:hover{transform:translateY(-4px);box-shadow:0 0 25px #d90035}
-.btn2{background:transparent;border:1px solid #aaa}
-.buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:30px}
-section{padding:85px 8%;text-align:center}
-.title{font-size:30px;letter-spacing:3px}
-.title span{color:var(--red)}
-.line{height:3px;width:75px;background:var(--red);margin:20px auto 35px;box-shadow:0 0 15px red}
-.about{background:#101116;border-top:1px solid #351018}
-.about p{max-width:750px;margin:auto;color:#bbb;line-height:2}
-.grid{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;max-width:1050px;margin:auto
+.btn-red{
+  background:var(--red);
+  box-shadow:0 0 22px #e21a354d;
 }
-.card{
-padding:35px 20px;
-background:linear-gradient(145deg,#1b1b22,#0b0b10);
-border:1px solid #48202a;border-radius:8px;
-transition:.3s
+.btn-outline{
+  border:1px solid #777;
+  background:#151515;
 }
-.card:hover{transform:translateY(-6px);border-color:#f21b39;box-shadow:0 0 20px #6d071a}
-.icon{font-size:42px;margin-bottom:20px}
-.card h3{margin-bottom:12px;color:#ff334b}
-.card p{color:#aaa;font-size:14px;line-height:1.8}
-.jobs{background:#101116}
-.discord{
-background:radial-gradient(ellipse at center,#580817,#09090d 75%);
-border-top:1px solid #50101b
+.btn:hover{transform:translateY(-4px);box-shadow:0 0 25px #f21c3570}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  max-width:750px;
+  width:90%;
+  margin:40px auto 0;
+  gap:12px;
 }
-.discord p{color:#bbb;line-height:2;margin:20px auto 30px}
+.stat{
+  background:#111;
+  border:1px solid #292929;
+  padding:15px;
+  border-radius:9px;
+}
+.stat strong{display:block;color:var(--red);font-size:22px}
+.stat span{font-size:12px;color:#aaa}
+
+section.main{
+  max-width:1050px;
+  margin:auto;
+  padding:65px 20px;
+}
+.section-head{text-align:center;margin-bottom:35px}
+.section-head small{
+  color:var(--red);
+  letter-spacing:4px;
+  font-size:12px;
+}
+.section-head h2{font-size:32px;margin-top:5px}
+.section-head p{color:#999;font-size:14px}
+
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+}
+.tab{
+  padding:12px 23px;
+  background:#151515;
+  color:white;
+  border:1px solid #393939;
+  border-radius:7px;
+  font-weight:600;
+}
+.tab.active{
+  background:#b90e25;
+  border-color:var(--red);
+  box-shadow:0 0 18px #ed1b3540;
+}
+.rule-group{
+  background:linear-gradient(120deg,#171717,#101010);
+  border:1px solid #303030;
+  border-left:3px solid var(--red);
+  border-radius:9px;
+  margin:13px 0;
+  overflow:hidden;
+}
+.rule-group summary{
+  list-style:none;
+  cursor:pointer;
+  padding:17px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  font-weight:600;
+}
+.rule-group summary::-webkit-details-marker{display:none}
+.rule-group summary:hover{background:#261014}
+.rule-group summary:after{
+  content:"+";
+  font-size:24px;
+  color:var(--red);
+}
+.rule-group[open] summary:after{content:"−"}
+.rule-content{
+  padding:15px 22px 22px;
+  border-top:1px solid #333;
+  color:#ddd;
+  font-size:14px;
+}
+.rule-content p{padding:7px 0;border-bottom:1px solid #ffffff0d}
+.rule-content p:last-child{border:0}
+.rule-content b{color:#ff5367}
+.intro{
+  background:#180b0e;
+  border:1px solid #67202c;
+  border-radius:9px;
+  padding:18px;
+  color:#ddd;
+  margin-bottom:25px;
+  font-size:14px;
+}
+.label{
+  display:inline-block;
+  font-size:10px;
+  color:#ff596b;
+  background:#3b0c14;
+  padding:2px 9px;
+  border-radius:20px;
+  margin-right:8px;
+}
+.warning{
+  background:#2b0c11;
+  border:1px solid #a51b30;
+  border-radius:9px;
+  padding:18px;
+  margin-top:20px;
+  color:#ffb4bd;
+}
+.punishment{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
+  margin-top:15px;
+}
+.punish-card{
+  background:#171717;
+  border:1px solid #3b2528;
+  padding:16px;
+  border-radius:8px;
+  text-align:center;
+}
+.punish-card strong{color:var(--red);display:block;font-size:19px}
+.punish-card span{font-size:12px;color:#bbb}
+
+.discord-banner{
+  text-align:center;
+  padding:55px 20px;
+  background:linear-gradient(130deg,#300811,#120608);
+  border-top:1px solid #65101d;
+  border-bottom:1px solid #65101d;
+}
+.discord-banner h2{font-size:30px}
+.discord-banner p{color:#bbb;margin:8px 0 22px}
+
 footer{
-padding:30px 15px;text-align:center;
-background:#050507;border-top:1px solid #55101c;
-color:#888;font-size:13px;line-height:2
+  text-align:center;
+  padding:35px 15px;
+  color:#777;
+  font-size:12px;
 }
-footer span{color:#ff263d}
+footer strong{color:var(--red);letter-spacing:3px}
+
 @media(max-width:650px){
-header{justify-content:center}
-nav{justify-content:center;gap:14px}
-nav a{font-size:11px}
-.hero{min-height:590px}
-section{padding:65px 20px}
+  nav{padding:12px 15px}
+  .navlinks{display:none}
+  .logo{font-size:19px}
+  .hero{min-height:530px;padding:75px 18px}
+  .hero h1{letter-spacing:1px}
+  .stats{gap:7px}
+  .stat{padding:10px 5px}
+  .stat strong{font-size:17px}
+  .stat span{font-size:10px}
+  section.main{padding:45px 13px}
+  .section-head h2{font-size:26px}
+  .rule-group summary{font-size:14px;padding:14px}
+  .rule-content{padding:12px;font-size:13px}
 }
 </style>
 </head>
 <body>
 
-<header>
-<div class="logo">RED <span>TOWN</span></div>
 <nav>
-<a href="#home">หน้าหลัก</a>
-<a href="#about">เกี่ยวกับเมือง</a>
-<a href="#rules">กฎเมือง</a>
-<a href="#jobs">หน่วยงาน</a>
-<a href="#discord">DISCORD</a>
+  <a class="logo" href="#">RED TOWN</a>
+  <div class="navlinks">
+    <a href="#home">หน้าแรก</a>
+    <a href="#rules">กฎเมือง</a>
+    <a href="#discord">กฎ Discord</a>
+  </div>
+  <a class="join-small" href="https://discord.gg/ZPhAQj7dQ" target="_blank">JOIN DISCORD ↗</a>
 </nav>
+
+<header class="hero" id="home">
+  <div class="hero-tag">OFFICIAL ROLEPLAY COMMUNITY</div>
+  <h1>RED <span>TOWN</span></h1>
+  <h2>ROLEPLAY</h2>
+  <p>
+    ยินดีต้อนรับสู่ RED TOWN ROLEPLAY
+    เมืองแห่งการสวมบทบาทที่ให้ความสำคัญกับความสมจริง
+    ความยุติธรรม และการให้เกียรติซึ่งกันและกัน
+  </p>
+  <div class="hero-buttons">
+    <a href="#rules" class="btn btn-red">อ่านกฎเมือง</a>
+    <a href="https://discord.gg/ZPhAQj7dQ" target="_blank" class="btn btn-outline">เข้าร่วม Discord ↗</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><strong>RED</strong><span>OUR IDENTITY</span></div>
+    <div class="stat"><strong>ROLEPLAY</strong><span>OUR COMMUNITY</span></div>
+    <div class="stat"><strong>RESPECT</strong><span>OUR STANDARD</span></div>
+  </div>
 </header>
 
-<section class="hero" id="home">
-<div class="city">
-<div class="building" style="--h:90px"></div>
-<div class="building" style="--h:150px"></div>
-<div class="building" style="--h:110px"></div>
-<div class="building" style="--h:190px"></div>
-<div class="building" style="--h:130px"></div>
-<div class="building" style="--h:210px"></div>
-<div class="building" style="--h:120px"></div>
-<div class="building" style="--h:170px"></div>
-<div class="building" style="--h:100px"></div>
-<div class="building" style="--h:145px"></div>
-</div>
-<div class="hero-content">
-<div class="subtitle">WELCOME TO OUR CITY</div>
-<h1>RED <span>TOWN</span></h1>
-<h2>ROLEPLAY</h2>
-<p>
-เมืองแห่งการใช้ชีวิตและสร้างเรื่องราวของคุณ<br>
-ทุกตัวละครมีเรื่องราว ทุกการใช้ชีวิตมีความหมาย
-</p>
-<div class="buttons">
-<a class="btn" href="https://discord.gg/FW6pkgcFU" target="_blank">JOIN DISCORD</a>
-<a class="btn btn2" href="#about">EXPLORE CITY</a>
-</div>
-</div>
+<section class="main" id="rules">
+  <div class="section-head">
+    <small>OFFICIAL REGULATIONS</small>
+    <h2>กฎการเล่นประจำเมือง</h2>
+    <p>RED TOWN ROLEPLAY — CITY RULES</p>
+  </div>
+
+  <div class="intro">
+    🏙️ ผู้เล่นทุกคนที่เข้าสู่เมือง RED TOWN ถือว่ารับทราบและยอมรับกฎการเล่น Roleplay ของเมืองโดยอัตโนมัติ เพื่อให้การสวมบทบาทสมจริง สนุก และยุติธรรมสำหรับทุกคน กรุณาปฏิบัติตามกฎอย่างเคร่งครัด
+  </div>
+
+  <details class="rule-group">
+    <summary>หมวด 01 : กฎระเบียบทั่วไป</summary>
+    <div class="rule-content">
+      <p>01. สมาชิกทุกคนต้องให้เกียรติซึ่งกันและกัน ไม่ว่าจะเป็นผู้เล่นหรือทีมงาน</p>
+      <p>02. ห้ามใช้ถ้อยคำหยาบคาย ดูหมิ่น เหยียดหยาม หรือคุกคามผู้อื่นในทุกรูปแบบ</p>
+      <p>03. ห้ามทะเลาะวิวาท ยั่วยุ หรือสร้างความแตกแยกภายในเซิร์ฟเวอร์</p>
+      <p>04. ห้ามแอบอ้างเป็นเจ้าของเมือง ผู้ดูแล หรือทีมงานโดยไม่ได้รับอนุญาต</p>
+      <p>05. ห้ามเผยแพร่ข้อมูลส่วนตัวของสมาชิกท่านอื่นโดยไม่ได้รับความยินยอม</p>
+      <p>06. ห้ามส่งภาพ คลิปวิดีโอ หรือข้อความที่มีเนื้อหาลามก อนาจาร หรือผิดกฎหมาย</p>
+      <p>07. ห้ามโฆษณาหรือชักชวนสมาชิกไปยังเซิร์ฟเวอร์อื่นโดยไม่ได้รับอนุญาต</p>
+      <p>08. สมาชิกทุกคนต้องปฏิบัติตามประกาศและคำชี้แจงจากทีมงาน</p>
+    </div>
+  </details>
+
+  <details class="rule-group">
+    <summary>หมวด 02 : กฎพื้นฐานการเล่น Roleplay (Core RP)</summary>
+    <div class="rule-content">
+      <p><b>01. RDM (Random Deathmatch)</b> : ห้ามฆ่า ทำร้าย หรือโจมตีผู้เล่นอื่นโดยไม่มีเหตุผลหรือเรื่องราวทาง IC รองรับ</p>
+      <p><b>02. VDM (Vehicle Deathmatch)</b> : ห้ามใช้ยานพาหนะพุ่งชน เหยียบ หรือกวาดผู้เล่นอื่นโดยเจตนาและไม่มีเหตุผลทาง RP</p>
+      <p><b>03. Meta Gaming (MG)</b> : ห้ามนำข้อมูลจากนอกเกม เช่น สตรีม Discord หรือคำบอกเล่านอกเกม มาใช้หาผลประโยชน์หรือตามหาตัวละคร</p>
+      <p><b>04. Power Gaming (PG)</b> : ห้ามกระทำสิ่งที่เป็นไปไม่ได้ตามความจริง หรือบังคับบทบาทจนผู้อื่นไม่มีโอกาสโต้ตอบ</p>
+      <p><b>05. Fear RP</b> : ต้องแสดงความกลัวต่อชีวิตตามสถานการณ์ หากถูกอาวุธข่มขู่ในระยะประชิดต้องคำนึงถึงความปลอดภัยของตัวละคร</p>
+      <p><b>06. NLR (New Life Rule)</b> : เมื่อเกิดใหม่ต้องไม่นำข้อมูลหรือความแค้นจากเหตุการณ์ก่อนเสียชีวิตกลับมาใช้ ต้องเว้นระยะ 15–30 นาทีตามกฎเมือง</p>
+      <p><b>07. Combat Logging</b> : ห้ามออกเกมหรือรีเซ็ตตัวละครเพื่อหลบเลี่ยงฉาก RP สำคัญ</p>
+      <p><b>08. Fail RP</b> : ห้ามแสดงพฤติกรรมที่ไม่สมจริง ขัดต่อบทบาท หรือทำลายบรรยากาศการเล่น</p>
+      <p><b>09. Mixing</b> : ห้ามนำคำพูดหรือข้อมูล OOC มาใช้ใน IC หากจำเป็นให้ใช้ /ooc หรือ (( ข้อความ ))</p>
+    </div>
+  </details>
+
+  <details class="rule-group">
+    <summary>หมวด 03 : กฎพื้นที่ปลอดภัย (Safe Zone)</summary>
+    <div class="rule-content">
+      <p>01. ห้ามก่ออาชญากรรม ปล้น จี้ ลักพาตัว หรือทำร้ายร่างกายในเขต Safe Zone</p>
+      <p>02. ห้ามวิ่งหนีเข้า Safe Zone เพื่อหลบหนีการไล่ล่าหรือฉาก RP ที่เริ่มต้นจากนอกพื้นที่</p>
+      <p>03. ห้ามขับรถชน ก่อกวน หรือจอดรถกีดขวางทางเข้าออกพื้นที่ปลอดภัย</p>
+      <p>พื้นที่ตัวอย่าง ได้แก่ โรงพยาบาล สถานีตำรวจ จุดเกิดเริ่มต้น และจุดทำงานสุจริตหลัก</p>
+    </div>
+  </details>
+
+  <details class="rule-group">
+    <summary>หมวด 04 : กฎการเล่น Roblox Roleplay</summary>
+    <div class="rule-content">
+      <p>01. ต้องปฏิบัติตามกฎ Roleplay ของเมืองอย่างเคร่งครัด</p>
+      <p>02. ห้ามใช้โปรแกรมโกง บั๊ก หรือช่องโหว่ของเกมเพื่อเอาเปรียบผู้อื่น</p>
+      <p>03. ห้ามใช้บัญชีอื่นเพื่อหลีกเลี่ยงบทลงโทษ (Ban Evasion)</p>
+      <p>04. ห้ามแกล้งผู้เล่นจนเกิดความเสียหายต่อประสบการณ์การเล่น</p>
+      <p>05. ห้ามใช้โปรแกรมหรือวิธีการใด ๆ เพื่อรบกวนระบบเมือง</p>
+      <p>06. ห้ามนำปัญหานอกเกมมาสร้างความขัดแย้งภายในเมือง</p>
+      <p>07. ห้ามแอบอ้างสิทธิ์หรือยศภายในเมือง</p>
+      <p>08. การตัดสินใจของทีมงานต้องอยู่ภายใต้กฎที่ประกาศไว้</p>
+    </div>
+  </details>
+
+  <div class="warning">
+    ⚠️ <b>หมายเหตุ:</b> หากสมาชิกฝ่าฝืนกฎ ทีมงานมีสิทธิ์พิจารณาดำเนินบทลงโทษตามความเหมาะสม โดยพิจารณาจากลักษณะและความรุนแรงของการกระทำผิด
+  </div>
 </section>
 
-<section class="about" id="about">
-<h2 class="title">ABOUT <span>OUR CITY</span></h2>
-<div class="line"></div>
-<p>
-ยินดีต้อนรับสู่ RED TOWN ROLEPLAY
-เมืองที่คุณสามารถออกแบบชีวิตในแบบของตัวเอง
-พบเจอเพื่อนใหม่ สร้างอาชีพ สร้างครอบครัว
-และร่วมเป็นส่วนหนึ่งของสังคมแห่งนี้
-</p>
+<section class="main" id="discord">
+  <div class="section-head">
+    <small>COMMUNITY GUIDELINES</small>
+    <h2>กฎการใช้งาน Discord</h2>
+    <p>RED TOWN ROLEPLAY — DISCORD RULES</p>
+  </div>
+
+  <div class="intro">
+    ผู้เล่นทุกคนที่เข้าร่วม Discord ของ RED TOWN ROLEPLAY ถือว่ารับทราบและยอมรับกฎระเบียบของเมืองโดยอัตโนมัติ สมาชิกทุกคนต้องปฏิบัติตามอย่างเคร่งครัด ไม่สามารถอ้างว่าไม่ทราบกฎเพื่อหลีกเลี่ยงความผิดได้
+  </div>
+
+  <details class="rule-group">
+    <summary>หมวด 01 : กฎระเบียบทั่วไป</summary>
+    <div class="rule-content">
+      <p>01. สมาชิกต้องให้เกียรติซึ่งกันและกัน ไม่ว่าจะเป็นผู้เล่นหรือทีมงาน</p>
+      <p>02. ห้ามใช้ถ้อยคำหยาบคาย ดูหมิ่น เหยียดหยาม หรือคุกคามผู้อื่น</p>
+      <p>03. ห้ามทะเลาะวิวาท ยั่วยุ หรือสร้างความแตกแยกภายในเซิร์ฟเวอร์</p>
+      <p>04. ห้ามแอบอ้างเป็นเจ้าของเมือง ผู้ดูแล หรือทีมงาน</p>
+      <p>05. ห้ามเผยแพร่ข้อมูลส่วนตัวของสมาชิกโดยไม่ได้รับอนุญาต</p>
+      <p>06. ห้ามส่งภาพ คลิป หรือข้อความที่มีเนื้อหาลามก อนาจาร หรือผิดกฎหมาย</p>
+      <p>07. ห้ามโฆษณาหรือชักชวนสมาชิกไปยังเซิร์ฟเวอร์อื่นโดยไม่ได้รับอนุญาต</p>
+      <p>08. สมาชิกต้องปฏิบัติตามประกาศจากทีมงาน</p>
+    </div>
+  </details>
+
+  <details class="rule-group">
+    <summary>หมวด 02 : กฎการใช้ห้องแชท Discord</summary>
+    <div class="rule-content">
+      <p>01. ใช้ห้องแชทให้ตรงกับวัตถุประสงค์ของแต่ละห้อง</p>
+      <p>02. ห้ามสแปมข้อความ อีโมจิ รูปภาพ หรือข้อความซ้ำ ๆ</p>
+      <p>03. ห้ามแท็ก @everyone หรือ @here โดยไม่ได้รับอนุญาต</p>
+      <p>04. ห้ามส่งลิงก์ที่มีความเสี่ยงต่อความปลอดภัยของสมาชิก</p>
+      <p>05. ห้ามปั่นกระแสหรือเผยแพร่ข่าวปลอมที่ส่งผลเสียต่อเมือง</p>
+      <p>06. ห้ามใช้ห้องประกาศเพื่อพูดคุยทั่วไป</p>
+      <p>07. ห้ามก่อกวนสมาชิกหรือทีมงานผ่านข้อความส่วนตัว (DM)</p>
+    </div>
+  </details>
+
+  <details class="rule-group">
+    <summary>หมวด 03 : กฎห้อง Voice</summary>
+    <div class="rule-content">
+      <p>01. ห้ามเปิดไมค์ส่งเสียงรบกวนผู้อื่น</p>
+      <p>02. ห้ามเปิดเสียงเพลงหรือเสียงเอฟเฟกต์เพื่อก่อกวน</p>
+      <p>03. ห้ามใช้โปรแกรมเปลี่ยนเสียงเพื่อแอบอ้างหรือหลอกลวง</p>
+      <p>04. ห้ามทะเลาะ ด่าทอ หรือคุกคามสมาชิกภายในห้องเสียง</p>
+      <p>05. ห้ามบันทึกเสียงหรือเผยแพร่บทสนทนาโดยไม่ได้รับความยินยอม</p>
+      <p>06. ต้องปฏิบัติตามคำสั่งผู้ดูแลห้องเสียง</p>
+    </div>
+  </details>
+
+  <details class="rule-group">
+    <summary>หมวด 04 : กฎการเล่น Roblox Roleplay</summary>
+    <div class="rule-content">
+      <p>01. ต้องปฏิบัติตามกฎ Roleplay ของเมืองอย่างเคร่งครัด</p>
+      <p>02. ห้ามใช้โปรแกรมโกง บั๊ก หรือช่องโหว่ของเกมเพื่อเอาเปรียบผู้อื่น</p>
+      <p>03. ห้ามใช้บัญชีอื่นเพื่อหลีกเลี่ยงบทลงโทษ (Ban Evasion)</p>
+      <p>04. ห้ามแกล้งผู้เล่นจนเกิดความเสียหายต่อประสบการณ์การเล่น</p>
+      <p>05. ห้ามใช้โปรแกรมหรือวิธีการใด ๆ เพื่อรบกวนระบบเมือง</p>
+      <p>06. ห้ามนำปัญหานอกเกมมาสร้างความขัดแย้งภายในเมือง</p>
+      <p>07. ห้ามแอบอ้างสิทธิ์หรือยศภายในเมือง</p>
+      <p>08. การตัดสินใจของทีมงานต้องอยู่ภายใต้กฎที่ประกาศไว้</p>
+    </div>
+  </details>
+
+  <details class="rule-group">
+    <summary>หมวด 05 : กฎการซื้อขายและแลกเปลี่ยน</summary>
+    <div class="rule-content">
+      <p>01. ห้ามหลอกลวงหรือโกงในการซื้อขายทุกกรณี</p>
+      <p>02. ห้ามแอบอ้างเป็นร้านค้า ตัวกลาง หรือผู้ดูแลเพื่อรับผลประโยชน์</p>
+      <p>03. การซื้อขายต้องดำเนินการผ่านช่องทางที่เมืองอนุญาต</p>
+      <p>04. ห้ามซื้อขายบัญชี Roblox หรือสิ่งของที่ผิดเงื่อนไขของแพลตฟอร์ม</p>
+      <p>05. ห้ามซื้อขาย Robux หรือไอเทมโดยใช้วิธีการที่ผิดกฎ Roblox</p>
+      <p>06. ห้ามนำข้อมูลส่วนตัว รหัสผ่าน หรือรหัสยืนยันบัญชีไปให้บุคคลอื่น</p>
+      <p>07. ห้ามบังคับ ข่มขู่ หรือกดดันให้สมาชิกซื้อสินค้า</p>
+      <p>08. ผู้ซื้อและผู้ขายต้องตรวจสอบรายละเอียดก่อนตกลงซื้อขาย</p>
+      <p>09. หากเกิดการโกง ต้องส่งหลักฐานให้ทีมงานตรวจสอบ</p>
+      <p>10. ทีมงานมีสิทธิ์ระงับการซื้อขายในกรณีพบพฤติกรรมที่น่าสงสัย</p>
+    </div>
+  </details>
+
+  <details class="rule-group">
+    <summary>หมวด 06 : กฎการร้องเรียนและแจ้งปัญหา</summary>
+    <div class="rule-content">
+      <p>01. การร้องเรียนต้องมีหลักฐาน เช่น ภาพหน้าจอ คลิปวิดีโอ หรือข้อความสนทนา</p>
+      <p>02. ต้องระบุชื่อผู้ถูกร้องเรียน วันเวลา และรายละเอียดเหตุการณ์ให้ชัดเจน</p>
+      <p>03. ห้ามร้องเรียนเท็จหรือสร้างหลักฐานปลอม</p>
+      <p>04. ห้ามนำเรื่องร้องเรียนไปเผยแพร่เพื่อประจานผู้อื่นก่อนทีมงานตรวจสอบ</p>
+      <p>05. ห้ามก่อกวนหรือเร่งรัดทีมงานผ่านข้อความส่วนตัว</p>
+      <p>06. สมาชิกต้องให้ความร่วมมือระหว่างการตรวจสอบ</p>
+      <p>07. ผลการพิจารณาจะขึ้นอยู่กับหลักฐานและกฎที่เกี่ยวข้อง</p>
+      <p>08. หากไม่เห็นด้วยกับผลการตัดสิน สามารถยื่นอุทธรณ์พร้อมเหตุผลและหลักฐานเพิ่มเติมได้</p>
+      <p>09. ห้ามใช้ระบบร้องเรียนเพื่อกลั่นแกล้งหรือแก้แค้นบุคคลอื่น</p>
+    </div>
+  </details>
+
+  <details class="rule-group">
+    <summary>หมวด 07 : กฎสำหรับแอดมินและทีมงาน</summary>
+    <div class="rule-content">
+      <p>01. ทีมงานต้องปฏิบัติตามกฎของเมืองเช่นเดียวกับสมาชิกทั่วไป</p>
+      <p>02. ห้ามใช้อำนาจหน้าที่เพื่อผลประโยชน์ส่วนตัว</p>
+      <p>03. ห้ามเลือกปฏิบัติหรือกลั่นแกล้งสมาชิก</p>
+      <p>04. ห้ามเปิดเผยข้อมูลส่วนตัวหรือข้อมูลร้องเรียนที่เป็นความลับ</p>
+      <p>05. ห้ามใช้คำสั่งหรือสิทธิ์แอดมินโดยไม่มีเหตุผลอันสมควร</p>
+      <p>06. การลงโทษสมาชิกต้องมีเหตุผลและอ้างอิงกฎที่กระทำผิด</p>
+      <p>07. ห้ามรับสินบนหรือเรียกรับผลประโยชน์จากสมาชิก</p>
+      <p>08. แอดมินต้องวางตัวเป็นกลางและให้ความเป็นธรรม</p>
+      <p>09. หากทีมงานกระทำผิด สมาชิกสามารถร้องเรียนต่อผู้ดูแลระดับสูงได้</p>
+      <p>10. ทีมงานที่ละเมิดกฎอาจถูกปลดจากตำแหน่ง พักงาน หรือแบนตามความเหมาะสม</p>
+    </div>
+  </details>
+
+  <details class="rule-group">
+    <summary>หมวด 08 : บทลงโทษ (Punishment System)</summary>
+    <div class="rule-content">
+      <div class="punishment">
+        <div class="punish-card"><strong>01</strong><span>Warning<br>ตักเตือน</span></div>
+        <div class="punish-card"><strong>02</strong><span>Timeout<br>พักการใช้งาน</span></div>
+        <div class="punish-card"><strong>03</strong><span>Kick<br>เตะออก</span></div>
+        <div class="punish-card"><strong>04</strong><span>Temporary Ban<br>แบนชั่วคราว</span></div>
+        <div class="punish-card"><strong>05</strong><span>Permanent Ban<br>แบนถาวร</span></div>
+      </div>
+      <div class="warning">
+        ⚠️ หมายเหตุ: การซื้อขายภายในเกมต้องเป็นไปตามข้อกำหนดของ Roblox ด้วย กฎของเมืองไม่สามารถอนุญาตให้ทำสิ่งที่แพลตฟอร์มห้ามได้
+        <br><br>
+        ⭐ ทีมงานสามารถพิจารณาลงโทษได้มากกว่าขั้น หากมีความผิดร้ายแรง โดยพิจารณาจากหลักฐานและความเหมาะสม
+      </div>
+    </div>
+  </details>
 </section>
 
-<section id="rules">
-<h2 class="title">CITY <span>RULES</span></h2>
-<div class="line"></div>
-<div class="grid">
-<div class="card">
-<div class="icon">📜</div>
-<h3>กฎระเบียบเมือง</h3>
-<p>ศึกษากฎก่อนเข้าร่วมการใช้ชีวิตในเมือง</p>
+<div class="discord-banner">
+  <h2>JOIN THE RED TOWN</h2>
+  <p>เข้าร่วมชุมชนและเป็นส่วนหนึ่งของเมือง RED TOWN ROLEPLAY</p>
+  <a class="btn btn-red" href="https://discord.gg/ZPhAQj7dQ" target="_blank" rel="noopener noreferrer">
+    ♛ JOIN OUR DISCORD ↗
+  </a>
 </div>
-<div class="card">
-<div class="icon">🤝</div>
-<h3>เคารพผู้เล่น</h3>
-<p>ให้เกียรติผู้เล่นทุกคนและร่วมสร้างสังคมที่ดี</p>
-</div>
-<div class="card">
-<div class="icon">⚖️</div>
-<h3>เล่นตามบทบาท</h3>
-<p>ปฏิบัติตามกฎ Roleplay และข้อกำหนดของเมือง</p>
-</div>
-</div>
-</section>
-
-<section class="jobs" id="jobs">
-<h2 class="title">CITY <span>DEPARTMENTS</span></h2>
-<div class="line"></div>
-<div class="grid">
-<div class="card">
-<div class="icon">🚔</div>
-<h3>POLICE</h3>
-<p>หน่วยงานตำรวจ ดูแลความสงบเรียบร้อย</p>
-</div>
-<div class="card">
-<div class="icon">🚑</div>
-<h3>HOSPITAL</h3>
-<p>หน่วยงานแพทย์ ดูแลรักษาผู้เล่นในเมือง</p>
-</div>
-<div class="card">
-<div class="icon">🔧</div>
-<h3>MECHANIC</h3>
-<p>หน่วยงานช่าง ดูแลและซ่อมบำรุงยานพาหนะ</p>
-</div>
-<div class="card">
-<div class="icon">🏙️</div>
-<h3>CIVILIAN</h3>
-<p>ประชาชนทั่วไป ร่วมสร้างสีสันให้เมือง</p>
-</div>
-</div>
-</section>
-
-<section class="discord" id="discord">
-<h2 class="title">JOIN <span>RED TOWN</span></h2>
-<div class="line"></div>
-<p>
-พร้อมเข้ามาสร้างเรื่องราวของคุณแล้วหรือยัง?<br>
-กดปุ่มด้านล่างเพื่อเข้าร่วมครอบครัว RED TOWN
-</p>
-<a class="btn" href="https://discord.gg/FW6pkgcFU" target="_blank" rel="noopener">
-JOIN OUR DISCORD
-</a>
-</section>
 
 <footer>
-© 2026 <span>RED TOWN ROLEPLAY</span><br>
-ALL RIGHTS RESERVED.
+  <strong>RED TOWN ROLEPLAY</strong>
+  <p>RESPECT THE RULES • RESPECT EACH OTHER</p>
+  <p>มีระเบียบ มีความรับผิดชอบ และให้เกียรติซึ่งกันและกัน</p>
+  <p>THANK YOU FOR BEING PART OF RED TOWN</p>
+  <p>© RED TOWN ROLEPLAY. ALL RIGHTS RESERVED.</p>
 </footer>
 
 </body>
