@@ -3,94 +3,227 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REDTOWM ROLEPLAY</title>
+<title>RED TOWN ROLEPLAY</title>
 <style>
-*{box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
- margin:0;background:#090b12;color:white;
- font-family:Arial,sans-serif;text-align:center;
+font-family:Arial,sans-serif;
+background:#08090d;color:white;
 }
-header{padding:22px;background:#11131b;
-border-bottom:3px solid #c51625}
-.logo{font-size:32px;font-weight:bold;
-color:#e21b32;letter-spacing:3px}
+:root{--red:#e50920;--dark:#08090d}
+header{
+position:sticky;top:0;z-index:99;
+background:rgba(5,6,10,.96);
+border-bottom:1px solid #6d101b;
+padding:18px 7%;
+display:flex;justify-content:space-between;
+align-items:center;flex-wrap:wrap;gap:15px
+}
+.logo{font-size:25px;font-weight:900;letter-spacing:3px}
+.logo span{color:var(--red)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:#ddd;text-decoration:none;font-size:13px}
+nav a:hover{color:#ff263d}
 .hero{
- padding:100px 20px;
- background:linear-gradient(135deg,#350b12,#10131c,#570d18)
+min-height:680px;
+display:flex;align-items:center;justify-content:center;
+text-align:center;padding:70px 20px;
+position:relative;overflow:hidden;
+background:
+linear-gradient(180deg,rgba(0,0,0,.25),#08090d),
+radial-gradient(ellipse at 50% 75%,#8c0618 0%,#300811 35%,#09090e 75%);
 }
-h1{font-size:clamp(35px,8vw,55px)}
-.hero p{color:#ddd;line-height:1.8}
+.city{
+position:absolute;bottom:0;width:100%;height:220px;
+display:flex;align-items:flex-end;justify-content:center;
+gap:7px;opacity:.6;
+}
+.building{
+background:linear-gradient(90deg,#090a0f,#24212a,#08090d);
+border-top:2px solid #a10c20;
+width:7%;height:var(--h);
+box-shadow:0 0 20px #8e0719;
+}
+.hero-content{position:relative;z-index:2;max-width:850px}
+.hero h1{
+font-size:clamp(40px,9vw,90px);
+font-weight:1000;letter-spacing:4px;
+text-shadow:0 0 30px #d90020;
+}
+.hero h1 span{color:#ff1b36}
+.subtitle{
+letter-spacing:6px;color:#ddd;
+margin:20px 0;font-size:13px
+}
+.hero p{color:#ccc;line-height:2;font-size:15px}
 .btn{
- display:inline-block;padding:14px 28px;
- margin:10px;border-radius:9px;
- color:white;text-decoration:none;font-weight:bold
+display:inline-block;padding:15px 30px;
+background:linear-gradient(135deg,#ed102c,#780010);
+color:white;text-decoration:none;
+font-weight:bold;border:1px solid #ff344c;
+border-radius:5px;transition:.3s;
 }
-.red{background:#c51625}
-.discord{background:#5865F2}
-section{padding:45px 20px}
-h2{color:#ed3347}
+.btn:hover{transform:translateY(-4px);box-shadow:0 0 25px #d90035}
+.btn2{background:transparent;border:1px solid #aaa}
+.buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:30px}
+section{padding:85px 8%;text-align:center}
+.title{font-size:30px;letter-spacing:3px}
+.title span{color:var(--red)}
+.line{height:3px;width:75px;background:var(--red);margin:20px auto 35px;box-shadow:0 0 15px red}
+.about{background:#101116;border-top:1px solid #351018}
+.about p{max-width:750px;margin:auto;color:#bbb;line-height:2}
+.grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;max-width:1050px;margin:auto
+}
 .card{
- background:#171b27;border:1px solid #76202c;
- border-radius:12px;padding:25px;
- max-width:600px;margin:15px auto
+padding:35px 20px;
+background:linear-gradient(145deg,#1b1b22,#0b0b10);
+border:1px solid #48202a;border-radius:8px;
+transition:.3s
 }
-footer{padding:25px;background:#11131b;color:#999}
+.card:hover{transform:translateY(-6px);border-color:#f21b39;box-shadow:0 0 20px #6d071a}
+.icon{font-size:42px;margin-bottom:20px}
+.card h3{margin-bottom:12px;color:#ff334b}
+.card p{color:#aaa;font-size:14px;line-height:1.8}
+.jobs{background:#101116}
+.discord{
+background:radial-gradient(ellipse at center,#580817,#09090d 75%);
+border-top:1px solid #50101b
+}
+.discord p{color:#bbb;line-height:2;margin:20px auto 30px}
+footer{
+padding:30px 15px;text-align:center;
+background:#050507;border-top:1px solid #55101c;
+color:#888;font-size:13px;line-height:2
+}
+footer span{color:#ff263d}
+@media(max-width:650px){
+header{justify-content:center}
+nav{justify-content:center;gap:14px}
+nav a{font-size:11px}
+.hero{min-height:590px}
+section{padding:65px 20px}
+}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">REDTOWM</div>
-<div>ROLEPLAY CITY</div>
+<div class="logo">RED <span>TOWN</span></div>
+<nav>
+<a href="#home">หน้าหลัก</a>
+<a href="#about">เกี่ยวกับเมือง</a>
+<a href="#rules">กฎเมือง</a>
+<a href="#jobs">หน่วยงาน</a>
+<a href="#discord">DISCORD</a>
+</nav>
 </header>
 
-<div class="hero">
-<h1>REDTOWM ROLEPLAY</h1>
-<p>ยินดีต้อนรับสู่เมืองแห่งการสวมบทบาท</p>
-<p>สร้างเรื่องราวใหม่ ๆ และมิตรภาพไปด้วยกัน</p>
+<section class="hero" id="home">
+<div class="city">
+<div class="building" style="--h:90px"></div>
+<div class="building" style="--h:150px"></div>
+<div class="building" style="--h:110px"></div>
+<div class="building" style="--h:190px"></div>
+<div class="building" style="--h:130px"></div>
+<div class="building" style="--h:210px"></div>
+<div class="building" style="--h:120px"></div>
+<div class="building" style="--h:170px"></div>
+<div class="building" style="--h:100px"></div>
+<div class="building" style="--h:145px"></div>
+</div>
+<div class="hero-content">
+<div class="subtitle">WELCOME TO OUR CITY</div>
+<h1>RED <span>TOWN</span></h1>
+<h2>ROLEPLAY</h2>
+<p>
+เมืองแห่งการใช้ชีวิตและสร้างเรื่องราวของคุณ<br>
+ทุกตัวละครมีเรื่องราว ทุกการใช้ชีวิตมีความหมาย
+</p>
+<div class="buttons">
+<a class="btn" href="https://discord.gg/FW6pkgcFU" target="_blank">JOIN DISCORD</a>
+<a class="btn btn2" href="#about">EXPLORE CITY</a>
+</div>
+</div>
+</section>
 
-<a class="btn red" href="#about">เข้าสู่เมือง</a>
+<section class="about" id="about">
+<h2 class="title">ABOUT <span>OUR CITY</span></h2>
+<div class="line"></div>
+<p>
+ยินดีต้อนรับสู่ RED TOWN ROLEPLAY
+เมืองที่คุณสามารถออกแบบชีวิตในแบบของตัวเอง
+พบเจอเพื่อนใหม่ สร้างอาชีพ สร้างครอบครัว
+และร่วมเป็นส่วนหนึ่งของสังคมแห่งนี้
+</p>
+</section>
 
-<a class="btn discord"
-href="https://discord.gg/FW6pkgcFU"
-target="_blank" rel="noopener">
+<section id="rules">
+<h2 class="title">CITY <span>RULES</span></h2>
+<div class="line"></div>
+<div class="grid">
+<div class="card">
+<div class="icon">📜</div>
+<h3>กฎระเบียบเมือง</h3>
+<p>ศึกษากฎก่อนเข้าร่วมการใช้ชีวิตในเมือง</p>
+</div>
+<div class="card">
+<div class="icon">🤝</div>
+<h3>เคารพผู้เล่น</h3>
+<p>ให้เกียรติผู้เล่นทุกคนและร่วมสร้างสังคมที่ดี</p>
+</div>
+<div class="card">
+<div class="icon">⚖️</div>
+<h3>เล่นตามบทบาท</h3>
+<p>ปฏิบัติตามกฎ Roleplay และข้อกำหนดของเมือง</p>
+</div>
+</div>
+</section>
+
+<section class="jobs" id="jobs">
+<h2 class="title">CITY <span>DEPARTMENTS</span></h2>
+<div class="line"></div>
+<div class="grid">
+<div class="card">
+<div class="icon">🚔</div>
+<h3>POLICE</h3>
+<p>หน่วยงานตำรวจ ดูแลความสงบเรียบร้อย</p>
+</div>
+<div class="card">
+<div class="icon">🚑</div>
+<h3>HOSPITAL</h3>
+<p>หน่วยงานแพทย์ ดูแลรักษาผู้เล่นในเมือง</p>
+</div>
+<div class="card">
+<div class="icon">🔧</div>
+<h3>MECHANIC</h3>
+<p>หน่วยงานช่าง ดูแลและซ่อมบำรุงยานพาหนะ</p>
+</div>
+<div class="card">
+<div class="icon">🏙️</div>
+<h3>CIVILIAN</h3>
+<p>ประชาชนทั่วไป ร่วมสร้างสีสันให้เมือง</p>
+</div>
+</div>
+</section>
+
+<section class="discord" id="discord">
+<h2 class="title">JOIN <span>RED TOWN</span></h2>
+<div class="line"></div>
+<p>
+พร้อมเข้ามาสร้างเรื่องราวของคุณแล้วหรือยัง?<br>
+กดปุ่มด้านล่างเพื่อเข้าร่วมครอบครัว RED TOWN
+</p>
+<a class="btn" href="https://discord.gg/FW6pkgcFU" target="_blank" rel="noopener">
 JOIN OUR DISCORD
 </a>
-</div>
-
-<section id="about">
-<h2>ABOUT OUR CITY</h2>
-<div class="card">
-<h3>ยินดีต้อนรับสู่ REDTOWM</h3>
-<p>เมืองแห่งความสนุก การผจญภัย และการสวมบทบาท</p>
-<p>มาร่วมสร้างสังคมที่ดีไปด้วยกัน</p>
-</div>
-</section>
-
-<section>
-<h2>CITY RULES</h2>
-<div class="card">
-<p>กรุณาอ่านกฎเมืองก่อนเข้าร่วมเล่น</p>
-<p>เคารพผู้เล่นทุกคน</p>
-<p>ห้ามใช้โปรแกรมโกง</p>
-<p>ปฏิบัติตามกฎของเมือง</p>
-</div>
-</section>
-
-<section>
-<h2>JOIN REDTOWM DISCORD</h2>
-<div class="card">
-<p>พร้อมเข้าร่วมครอบครัว REDTOWM แล้วหรือยัง?</p>
-<a class="btn discord"
-href="https://discord.gg/FW6pkgcFU"
-target="_blank" rel="noopener">
-เข้าร่วม Discord เมือง
-</a>
-</div>
 </section>
 
 <footer>
-© 2026 REDTOWM ROLEPLAY
+© 2026 <span>RED TOWN ROLEPLAY</span><br>
+ALL RIGHTS RESERVED.
 </footer>
 
 </body>
